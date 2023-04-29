@@ -3,9 +3,11 @@ import { AppComponent } from "./app/app.component";
 import { importProvidersFrom } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { AuthGuard } from "./app/ui/components/auth/guards/auth.guard";
+import { provideHttpClient } from "@angular/common/http"
 
 bootstrapApplication(AppComponent,{
     providers: [
+        provideHttpClient(),
         importProvidersFrom(
             BrowserModule,
             RouterModule.forRoot([
