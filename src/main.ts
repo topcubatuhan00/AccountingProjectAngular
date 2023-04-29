@@ -2,6 +2,7 @@ import { BrowserModule, bootstrapApplication } from "@angular/platform-browser";
 import { AppComponent } from "./app/app.component";
 import { importProvidersFrom } from "@angular/core";
 import { RouterModule } from "@angular/router";
+import { AuthGuard } from "./app/ui/components/auth/guards/auth.guard";
 
 bootstrapApplication(AppComponent,{
     providers: [
@@ -11,6 +12,7 @@ bootstrapApplication(AppComponent,{
                 {
                 path: "",
                 loadComponent: () => import("./app/ui/components/layouts/layouts.component").then(c => c.LayoutsComponent),
+                canActivateChild: [AuthGuard],
                 children: [
                     {
                         path: "",
