@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { ValidInputDirective } from 'src/app/common/valid-input.directive';
 
 @Component({
@@ -12,5 +12,9 @@ import { ValidInputDirective } from 'src/app/common/valid-input.directive';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
+  login(form:NgForm){
+      if(form.valid){
+        console.log(form.value)
+      }
+  }
 }
