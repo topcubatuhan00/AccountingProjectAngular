@@ -8,7 +8,6 @@ import { CryptoService } from 'src/app/common/services/crypto.service';
   providedIn: 'root'
 })
 export class AuthService {
-  api: string = "https://localhost:7120/api/Auth/Login";
   constructor(
     private _http: GenericHttpService,
     private _router: Router,
@@ -16,7 +15,7 @@ export class AuthService {
   ) { }
 
     login(model: any){
-      this._http.post<LoginResponseModel>(this.api,model, res => {
+      this._http.post<LoginResponseModel>("Auth/Login",model, res => {
         let cryptoValue = this._crypto.encyrpt(JSON.stringify(res));
         localStorage.setItem("accessToken",cryptoValue);
         this._router.navigateByUrl("/");
