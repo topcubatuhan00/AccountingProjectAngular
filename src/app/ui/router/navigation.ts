@@ -13,6 +13,6 @@ export const Navigations: Navigation[] = [
     {
         routerLink: "/ucafs",
         name: "Hesap Planı",
-        icon: "far fa-circle text"
+        icon: "fa fa-file-signature"
     }
 ]

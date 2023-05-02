@@ -6,6 +6,7 @@ export  class LoginResponseModel{
         email: string = "";
         userId: string  = "";
         nameLastName: string = "";
+        year: number = new Date().getFullYear();
         companies: CompanyModel[] = [];
         company: CompanyModel = new CompanyModel(); 
 }
