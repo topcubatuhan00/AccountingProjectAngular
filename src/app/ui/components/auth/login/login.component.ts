@@ -19,7 +19,8 @@ export class LoginComponent {
 
   constructor(
     private _auth: AuthService
-  ){}
+  ){
+  }
 
   login(form:NgForm){
       if(form.valid){
