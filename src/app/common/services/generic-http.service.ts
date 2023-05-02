@@ -8,7 +8,7 @@ import { ErrorService } from './error.service';
 export class GenericHttpService {
 
   apiUrl: string = ""
-  token: string = localStorage.getItem("accessToken").toString();
+  token: string = localStorage.getItem("accessToken");
   constructor(
     private _http: HttpClient,
     private _error: ErrorService

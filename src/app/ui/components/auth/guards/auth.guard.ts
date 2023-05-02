@@ -7,21 +7,26 @@ import { Observable } from 'rxjs';
 })
 export class AuthGuard implements CanActivate, CanActivateChild {
 
-  constructor(private _router: Router){
-    
+  constructor(
+    private _router: Router
+  ){
+
+  }
+
+  canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return this.canActivate(childRoute,state);
   }
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot){
-      if(!localStorage.getItem("accessToken")){
-        this._router.navigateByUrl("/login")
-        return true;
-      }
-    return false;
-  }
-  canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-    return this.canActivate(childRoute,state);
+    state: RouterStateSnapshot) {
+    
+    if(!localStorage.getItem("accessToken")){
+      this._router.navigateByUrl("/login");
+      return false;
+    }
+
+    return true;
   }
   
 }
