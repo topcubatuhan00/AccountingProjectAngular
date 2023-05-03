@@ -5,4 +5,5 @@ export class UcafModel{
     id: string = "";
     createdDate: string = "";
     updatedDate: string = "";
+    companyId: string = "";
 }
