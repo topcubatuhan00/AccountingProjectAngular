@@ -11,6 +11,7 @@ import { ValidInputDirective } from 'src/app/common/directives/valid-input.direc
 import { LoadingButtonComponent } from 'src/app/common/components/loading-button/loading-button.component';
 import { ToastrService, ToastrType } from '../auth/services/toastr.service';
 import { CreateUcafModel } from './models/create-ucaf.model';
+import { RemoveByIdUcafModel } from './models/remove-by-id-ucaf.model';
 
 @Component({
   selector: 'app-ucafs',
@@ -76,4 +77,18 @@ export class UcafsComponent implements OnInit{
       });
     }
   }
+
+  removeById(id:string){
+    var result = confirm("Silmek istediğinize emin misiniz?")
+    if(result){
+      let model = new RemoveByIdUcafModel();
+      model.id  = id;
+
+      this._ucaf.removeById(model, (res) => {
+        this.getAll();
+        this._toastr.toast(ToastrType.Info,"Başarılı!" ,res.message)
+      });
+    }
+  }
+
 }
