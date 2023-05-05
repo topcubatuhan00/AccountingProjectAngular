@@ -1,0 +1,9 @@
+.searchBar{
+    width: 160px;
+    transition: 1s;
+    float: right;
+}
+
+.searchBar:focus{
+    width: 100%;
+}

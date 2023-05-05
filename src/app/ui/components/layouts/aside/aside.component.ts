@@ -17,9 +17,5 @@ export class AsideComponent {
 
   navigations = Navigations;
 
-  constructor(private _authService: AuthService){}
-
-  logout(){
-    this._authService.logout();
-  }
+  
 }
