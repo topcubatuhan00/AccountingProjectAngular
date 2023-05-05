@@ -44,7 +44,7 @@ export class GenericHttpService {
 
   setOptions(authorize: boolean){
     if(authorize){
-      return {headers: {'Authorization':`Bearer ${localStorage.getItem(this.token)}`}}
+      return {headers: {'Authorization':`Bearer ${this.token}`}}
     }
     return {}
   }
